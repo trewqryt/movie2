@@ -89,13 +89,13 @@ const UpdateOrder = () => {
       <div className="movies-grid">
         {order.items.map(item => (
           <div key={item.id} className="movie-card">
-            {item.poster ? (
-              <img src={item.poster} alt={item.title} />
-            ) : (
-              <div style={{ height: '450px', background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666' }}>
-                Нет постера
-              </div>
-            )}
+                        {item.poster ? (
+                        <img src={item.poster} alt={item.title} />
+                        ) : (
+                        <div style={{ height: '450px', background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666' }}>
+                            Нет постера
+                        </div>
+                        )}
             <div className="movie-info">
               <h3>{item.title}</h3>
               <p>Год: {item.year}</p>

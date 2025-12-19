@@ -21,8 +21,8 @@ const BasketList = () => {
       <div className="movies-grid">
         {cart.map(item => (
           <div key={item.id} className="movie-card">
-            {item.imageUrl ? (
-              <img src={item.imageUrl} alt={item.title} />
+            {item.poster ? (
+              <img src={item.poster} alt={item.title} />
             ) : (
               <div style={{height: '450px', background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666'}}>
                 Нет постера
@@ -30,20 +30,33 @@ const BasketList = () => {
             )}
             <div className="movie-info">
               <h3>{item.title}</h3>
-              <p style={{ fontSize: '1.3rem', margin: '15px 0', color: '#ff4500' }}>
+              <p style={{ fontSize: '1.4rem', margin: '20px 0', color: '#ff4500', fontWeight: 'bold' }}>
                 Билетов: {item.quantity} × 500 ₽
               </p>
 
               <div className="quantity-controls">
                 <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
-                <span style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>{item.quantity}</span>
+                <span>{item.quantity}</span>
                 <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
               </div>
 
               <button 
                 onClick={() => removeFromCart(item.id)} 
-                className="btn-primary btn-delete"
-                style={{ width: '100%', marginTop: '15px' }}
+                style={{
+                  backgroundColor: '#dc3545',
+                  color: 'white',
+                  padding: '15px 30px',
+                  border: 'none',
+                  borderRadius: '15px',
+                  fontSize: '1.3rem',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  width: '100%',
+                  marginTop: '25px',
+                  transition: 'background-color 0.3s ease'
+                }}
+                onMouseOver={(e) => e.target.style.backgroundColor = '#c82333'}
+                onMouseOut={(e) => e.target.style.backgroundColor = '#dc3545'}
               >
                 Удалить
               </button>

@@ -18,8 +18,9 @@ const BasketDetail = () => {
       <Link to="/basket" className="back-link">← Назад в корзину</Link>
 
       <div className="movie-detail">
-        {item.imageUrl ? (
-          <img src={item.imageUrl} alt={item.title} className="poster" />
+        {/* Исправлено: item.poster */}
+        {item.poster ? (
+          <img src={item.poster} alt={item.title} className="poster" />
         ) : (
           <div style={{width: '400px', height: '600px', background: '#222', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666'}}>
             Нет постера

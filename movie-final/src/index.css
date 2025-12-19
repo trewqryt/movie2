@@ -1,4 +1,4 @@
-/* src/index.css — Единый стиль для всего сайта CinemaHub */
+/* src/index.css — Единый стиль для всего сайта */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
@@ -15,15 +15,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+body.light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* Контейнер */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Хедер — исправленное расположение: всё в одной строке, логотип слева, меню справа */
+/* Хедер */
 .header {
   background-color: #000000;
   padding: 20px 0;
@@ -31,29 +38,33 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.5s ease;
+}
+
+body.light-theme .header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .header-nav {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;
   display: flex;
-  justify-content: space-between;  /* логотип слева, меню справа */
-  align-items: center;             /* по вертикали по центру */
-  height: 60px;                    /* фиксированная высота для стабильности */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   font-size: 2.8rem;
   font-weight: bold;
   color: #ff4500;
-  letter-spacing: 1px;
   text-decoration: none;
 }
 
 .nav-links {
   display: flex;
-  gap: 60px;                       /* большой промежуток между пунктами */
+  gap: 60px;
   align-items: center;
 }
 
@@ -63,33 +74,33 @@ body {
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
-  position: relative;
+}
+
+body.light-theme .nav-links a {
+  color: #212529;
 }
 
 .nav-links a:hover {
   color: #ff4500;
 }
 
-/* Подчёркивание при наведении */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: -8px;
-  left: 50%;
-  background-color: #ff4500;
-  transition: all 0.3s ease;
+/* Переключатель темы */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
-  left: 0;
+.theme-toggle:hover {
+  transform: rotate(20deg);
 }
-/* Основной контент */
+
+/* Основное */
 main {
   flex: 1;
-  padding: 60px 0;
 }
 
 /* Заголовки */
@@ -97,20 +108,11 @@ main {
   text-align: center;
   font-size: 3.2rem;
   color: #ff4500;
-  margin-bottom: 60px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.8rem;
-  color: #ff4500;
-  margin: 80px 0 50px;
+  margin: 60px 0;
   font-weight: 700;
 }
 
-/* Сетка карточек */
+/* Сетка фильмов */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -122,8 +124,13 @@ main {
   background-color: #1a1a1a;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.light-theme .movie-card {
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .movie-card:hover {
@@ -135,11 +142,6 @@ main {
   width: 100%;
   height: 480px;
   object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.movie-card:hover img {
-  transform: scale(1.05);
 }
 
 .movie-info {
@@ -150,16 +152,22 @@ main {
 .movie-info h3 {
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #ffffff;
+}
+
+body.light-theme .movie-info h3 {
+  color: #212529;
 }
 
 .movie-info p {
   color: #bbbbbb;
-  font-size: 1.2rem;
   margin-bottom: 25px;
 }
 
-/* Кнопки на карточке */
+body.light-theme .movie-info p {
+  color: #666666;
+}
+
+/* Кнопки */
 .movie-buttons {
   display: flex;
   flex-direction: column;
@@ -168,29 +176,34 @@ main {
 
 .btn-detail {
   background-color: #2c2c2c;
-  color: #ffffff;
-  padding: 14px 25px;
-  border: 2px solid #444444;
+  color: white;
+  padding: 14px;
+  border: 2px solid #444;
   border-radius: 12px;
-  font-size: 1.1rem;
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
+body.light-theme .btn-detail {
+  background-color: #e9ecef;
+  color: #212529;
+  border-color: #ced4da;
+}
+
 .btn-detail:hover {
-  background-color: #444444;
+  background-color: #ff4500;
   border-color: #ff4500;
-  color: #ff4500;
+  color: white;
 }
 
 .btn-cart {
   background-color: #28a745;
   color: white;
-  padding: 16px 25px;
+  padding: 16px;
   border: none;
   border-radius: 12px;
-  font-size: 1.2rem;
   font-weight: bold;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 
@@ -199,76 +212,70 @@ main {
   transform: scale(1.05);
 }
 
-/* Страница деталей фильма */
-.movie-detail {
-  display: flex;
-  gap: 60px;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-top: 40px;
-}
-
-.movie-detail img {
-  border-radius: 20px;
-  max-width: 450px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
-}
-
-.movie-detail-info h1 {
-  font-size: 4rem;
-  margin-bottom: 30px;
-  color: #ff4500;
-}
-
-.movie-detail-info p {
-  font-size: 1.5rem;
-  line-height: 1.8;
-  margin: 20px 0;
-  color: #dddddd;
-}
-
-.movie-detail-info strong {
-  color: #ff4500;
-}
-
-/* Корзина */
+/* Корзина — большие круглые кнопки количества */
 .quantity-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-  margin: 25px 0;
+  gap: 30px;
+  margin: 30px 0;
 }
 
 .quantity-controls button {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   background-color: #333333;
   color: white;
   border: none;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+body.light-theme .quantity-controls button {
+  background-color: #dee2e6;
+  color: #212529;
 }
 
 .quantity-controls button:hover {
   background-color: #ff4500;
+  transform: scale(1.1);
 }
 
 .quantity-controls span {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  min-width: 50px;
+  min-width: 80px;
   text-align: center;
 }
 
+/* Кнопка удалить — большая красная */
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  padding: 18px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+  transform: scale(1.02);
+}
+
+/* Итого */
 .total-sum {
   text-align: center;
   font-size: 2.8rem;
   margin: 80px 0 50px;
-  color: #ffffff;
 }
 
 .total-sum strong {
@@ -276,11 +283,11 @@ main {
   font-size: 3.2rem;
 }
 
-/* Кнопки оформления и удаления */
+/* Большая кнопка оформления */
 .btn-large {
   display: block;
   margin: 0 auto;
-  padding: 20px 60px;
+  padding: 20px 70px;
   background-color: #28a745;
   color: white;
   border: none;
@@ -296,70 +303,38 @@ main {
   transform: scale(1.05);
 }
 
-.btn-delete {
-  background-color: #dc3545;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.btn-delete:hover {
-  background-color: #c82333;
-}
-
-/* Статусы заказа */
-.status-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 50px 0;
-}
-
-.status-buttons button {
-  padding: 15px 35px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.status-buttons button:hover {
-  transform: scale(1.1);
-}
-
-.status-paid {
-  background-color: #ffc107;
-  color: black;
-}
-
-.status-processing {
-  background-color: #17a2b8;
-  color: white;
-}
-
-.status-completed {
-  background-color: #28a745;
-  color: white;
-}
-
-.status-cancelled {
-  background-color: #dc3545;
-  color: white;
-}
-
-/* Ссылки "Назад" */
-.back-link {
-  display: inline-block;
-  color: #ff4500;
-  font-size: 1.4rem;
+/* Заказы — карточки */
+.order-card {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  padding: 30px;
   margin-bottom: 40px;
-  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-.back-link:hover {
-  text-decoration: underline;
+body.light-theme .order-card {
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.order-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.order-card p {
+  font-size: 1.4rem;
+  margin: 10px 0;
+  color: #bbbbbb;
+}
+
+body.light-theme .order-card p {
+  color: #666666;
+}
+
+.order-card .btn-primary {
+  margin-top: 20px;
+  display: inline-block;
 }
 
 /* Футер */
@@ -367,50 +342,79 @@ main {
   background-color: #000000;
   padding: 40px 20px;
   text-align: center;
-  border-top: 2px solid #333333;
+  margin-top: auto;
+}
+
+body.light-theme .footer {
+  background-color: #f8f9fa;
+  color: #666666;
 }
 
 .footer p {
-  color: #888888;
   font-size: 1.2rem;
-  margin: 15px 0;
+  color: #888888;
 }
 
 .footer-links a {
   color: #ff4500;
   margin: 0 20px;
   font-weight: 500;
-  font-size: 1.1rem;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
 }
 
-/* Слайдер на главной */
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
+/* Выбор мест в зале */
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 12px;
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.seat {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  font-size: 3rem;
+  background-color: #333333;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.slider-arrow:hover {
-  background: rgba(255, 69, 0, 0.8);
+body.light-theme .seat {
+  background-color: #dee2e6;
+  color: #212529;
 }
 
-.slider-arrow.left {
-  left: 30px;
+.seat.selected {
+  background-color: #ff4500;
+  transform: scale(1.1);
 }
 
-.slider-arrow.right {
-  right: 30px;
+.seat:hover:not(.selected) {
+  background-color: #ff4500;
+  transform: scale(1.05);
 }
+
+.screen {
+  background: linear-gradient(to bottom, #444, #222);
+  height: 80px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff4500;
+  font-size: 1.8rem;
+  font-weight: bold;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+

@@ -33,14 +33,8 @@ const Profile = () => {
           Личный кабинет
         </h1>
 
-        <p style={{ fontSize: '2rem', margin: '30px 0' }}>
-          Привет, <strong style={{ color: '#ff4500' }}>
-            {user.firstName} {user.lastName}
-          </strong>!
-        </p>
-
-        <p style={{ fontSize: '1.5rem', color: '#aaaaaa', margin: '30px 0' }}>
-          Email: {user.email}
+        <p style={{ fontSize: '1.8rem', margin: '30px 0' }}>
+          Добро пожаловать, <strong style={{ color: '#ff4500' }}>{user.email}</strong>!
         </p>
 
         <p style={{ fontSize: '1.4rem', color: '#aaaaaa', margin: '40px 0' }}>
