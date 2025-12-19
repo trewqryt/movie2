@@ -1,15 +1,15 @@
-import MovieCard from "../components/MovieCard";
-import { movies } from "../data/movies";
+import MovieCard from '../components/MovieCard.jsx';
+import movies from '../data/movies.js';
 
-export default function Movies() {
+const Movies = () => {
   return (
     <div className="container">
-      <h1 style={{fontSize: "4rem", textAlign: "center", margin: "2rem 0", background: "linear-gradient(to right, #facc15, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"}}>
-        Все фильмы
-      </h1>
+      <h1 className="page-title">Фильмы</h1>
       <div className="movies-grid">
         {movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
       </div>
     </div>
   );
-}
+};
+
+export default Movies;
