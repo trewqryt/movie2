@@ -8,6 +8,9 @@ import BasketList from './pages/BasketList.jsx';
 import BasketDetail from './pages/BasketDetail.jsx';
 import CreateOrder from './pages/CreateOrder.jsx';
 import UpdateOrder from './pages/UpdateOrder.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import Profile from './pages/Profile.jsx';
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
           <Route path="/order/create" element={<CreateOrder />} />
           <Route path="/order/update/:id" element={<UpdateOrder />} />
           <Route path="/orders" element={<UpdateOrder />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
       <Footer />
