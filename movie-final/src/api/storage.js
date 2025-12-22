@@ -1,5 +1,3 @@
-// src/api/storage.js
-
 const CART_KEY = 'movie_cart';
 const ORDERS_KEY = 'movie_orders';
 

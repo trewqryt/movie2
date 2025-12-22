@@ -1,36 +1,5 @@
-// src/data/movies.js
 
 const movies = [
-  {
-    id: 1,
-    title: "Начало",
-    year: 2010,
-    rating: 8.8,
-    director: "Кристофер Нолан",
-    genre: "Фантастика",
-    description: "Вор проникает в сны, чтобы красть секреты.",
-    poster: "https://i.pinimg.com/1200x/b2/31/05/b231052117c0c1dfa7c4cd11a61b3560.jpg",
-  },
-  {
-    id: 2,
-    title: "Интерстеллар",
-    year: 2014,
-    rating: 8.6,
-    director: "Кристофер Нолан",
-    genre: "Фантастика",
-    description: "Поиск нового дома для человечества.",
-    poster: "https://i.pinimg.com/1200x/0b/34/ce/0b34ce2145b475247577a5d438a199b0.jpg",
-  },
-  {
-    id: 3,
-    title: "Матрица",
-    year: 1999,
-    rating: 8.7,
-    director: "Вачовски",
-    genre: "Боевик",
-    description: "Мир — это симуляция.",
-    poster: "https://i.pinimg.com/1200x/3d/b6/0c/3db60c63f66a7dd497563f1cf030f64a.jpg",
-  },
   {
     id: 4,
     title: "Оппенгеймер",

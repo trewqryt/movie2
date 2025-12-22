@@ -9,10 +9,9 @@ const UpdateOrder = () => {
   const changeStatus = (status) => {
     updateOrderStatus(Number(id), status);
     alert('Статус обновлён!');
-    window.location.reload(); // обновляем страницу, чтобы увидеть изменения
+    window.location.reload(); 
   };
 
-  // Список всех заказов (роут /orders)
   if (!id) {
     if (orders.length === 0) {
       return (
@@ -46,7 +45,6 @@ const UpdateOrder = () => {
     );
   }
 
-  // Детали конкретного заказа
   if (!order) {
     return (
       <div className="container">
@@ -69,16 +67,13 @@ const UpdateOrder = () => {
 
       <div className="status-buttons">
         <button onClick={() => changeStatus('Оплачен')} className="status-paid">
-          Оплачен
-        </button>
-        <button onClick={() => changeStatus('В обработке')} className="status-processing">
-          В обработке
+          Оплатить
         </button>
         <button onClick={() => changeStatus('Выполнен')} className="status-completed">
-          Выполнен
+          Подтвердить
         </button>
         <button onClick={() => changeStatus('Отменён')} className="status-cancelled">
-          Отменён
+          Отменить
         </button>
       </div>
 

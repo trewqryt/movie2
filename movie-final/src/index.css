@@ -98,12 +98,10 @@ body.light-theme .nav-links a {
   transform: rotate(20deg);
 }
 
-/* Основное */
 main {
   flex: 1;
 }
 
-/* Заголовки */
 .page-title {
   text-align: center;
   font-size: 3.2rem;
@@ -112,14 +110,12 @@ main {
   font-weight: 700;
 }
 
-/* Сетка фильмов */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 40px;
 }
 
-/* Карточка фильма */
 .movie-card {
   background-color: #1a1a1a;
   border-radius: 20px;
@@ -167,7 +163,6 @@ body.light-theme .movie-info p {
   color: #666666;
 }
 
-/* Кнопки */
 .movie-buttons {
   display: flex;
   flex-direction: column;
@@ -212,7 +207,7 @@ body.light-theme .btn-detail {
   transform: scale(1.05);
 }
 
-/* Корзина — большие круглые кнопки количества */
+
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -251,7 +246,6 @@ body.light-theme .quantity-controls button {
   text-align: center;
 }
 
-/* Кнопка удалить — большая красная */
 .btn-delete {
   background-color: #dc3545;
   color: white;
@@ -271,7 +265,6 @@ body.light-theme .quantity-controls button {
   transform: scale(1.02);
 }
 
-/* Итого */
 .total-sum {
   text-align: center;
   font-size: 2.8rem;
@@ -283,7 +276,6 @@ body.light-theme .quantity-controls button {
   font-size: 3.2rem;
 }
 
-/* Большая кнопка оформления */
 .btn-large {
   display: block;
   margin: 0 auto;
@@ -303,7 +295,6 @@ body.light-theme .quantity-controls button {
   transform: scale(1.05);
 }
 
-/* Заказы — карточки */
 .order-card {
   background-color: #1a1a1a;
   border-radius: 20px;
@@ -365,7 +356,6 @@ body.light-theme .footer {
   text-decoration: underline;
 }
 
-/* Выбор мест в зале */
 .seat-grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);

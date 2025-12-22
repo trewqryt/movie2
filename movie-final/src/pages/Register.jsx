@@ -12,7 +12,6 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // Проверка полей
     if (!firstName || !lastName || !email || !password || !confirmPassword) {
       alert('Заполните все поля!');
       return;
@@ -28,7 +27,6 @@ const Register = () => {
       return;
     }
 
-    // Сохраняем пользователя
     const user = {
       firstName,
       lastName,
